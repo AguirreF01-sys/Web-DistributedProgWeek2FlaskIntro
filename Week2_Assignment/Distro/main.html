@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Race Bannon</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="static/scripts/main.js"></script>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="#intro">Intro</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section id="intro">
+        <div class="Container">
+            <img src="static/images/race.jpeg" alt="display picture of Race">
+            <h1>My Name Is Race Bannon</h1>
+            <input id="firstName" type="text" placeholder="First Name">
+            <input id="lastName" type="text" placeholder="Last Name">
+            <input id="clicker" type="button" value="Click This Button" onclick="runMain();">
+        </div>
+    </section>
+    <section id="about">
+        <div class="Container">
+            <h2>About Me</h2>
+            <p>I am a blatant ripoff of Clutch Cargo</p>
+            <ul>
+                <li>Adventurer</li>
+                <li>Bodyguard</li>
+                <li>Rip off artist</li>
+            </ul>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="Container">
+            <h2>Contact Me</h2>
+            <p>I'm not currently available for hire.</p>
+            <ul>
+                <li>Email ID</li>
+                <li>Insta ID</li>
+                <li>Facebook ID</li>
+            </ul>
+        </div>
+    </section>
+    <section id="name-input">
+        <div class="container">
+            <input type="text" id="name" placeholder="Name">
+            <button onclick="Execute()">Send</button>
+        </div>
+    </section>
+        <section id="name-output">
+    <div class="container">
+        <input type="text" id="name2" placeholder="Name">
+        <button onclick="GetLast()">Get</button>
+        <p id="last-name"></p>
+    </div>
+    </section>
+</main>
+</body>
+</html>

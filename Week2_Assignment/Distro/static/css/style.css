@@ -1,0 +1,66 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    height: 50px;
+}
+
+header nav ul {
+    display: flex;
+    margin-left: 80%;
+    list-style: none;
+}
+
+header nav ul li {
+    padding-left: 10%;
+}
+
+header a {
+    text-decoration: none;
+    color: brown;
+}
+
+section {
+    height: 100vh;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Container img {
+    height: 400px;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.Container h1 {
+    margin-top: 2%;
+    font-size: 3em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: maroon;
+}
+
+.Container h2 {
+    margin-top: 2%;
+    font-size: 2em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: maroon;
+}
+
+.Container p {
+    margin-top: 2%;
+    font-size: 2em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: navy;
+}
+
+.Container ul, li {
+    margin-top: 2%;
+    font-size: 1em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: maroon;
+ 
+}
