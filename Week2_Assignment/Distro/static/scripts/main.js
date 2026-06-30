@@ -1,20 +1,21 @@
-function runMain() {
-    var first_name = document.getElementById("firstName").value
-    var last_name = document.getElementById("lastName").value
-    console.log(first_name)
-    console.log(last_name)
-    var my_json = `{"firstName": "${first_name}", "lastName": "${last_name}"}`;
-    console.log(my_json)
+    // The existing button in main.html calls runMain().
+    Execute();
 }
 
 function Execute() {
-    var name = document.getElementById('name').value;
-    console.log('Name:', name);
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
 
-    // Create the JSON data
-    var data = {name: name};
+    if (!firstName || !lastName) {
+        alert('Enter both a first name and a last name.');
+        return;
+    }
 
-    // Send a POST request to the Flask route
+    const data = {
+        firstName: firstName,
+        lastName: lastName
+    };
+
     fetch('/submit', {
         method: 'POST',
         headers: {
@@ -22,24 +23,56 @@ function Execute() {
         },
         body: JSON.stringify(data)
     })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+    .then(async response => {
+        const responseData = await response.json();
+
+        if (!response.ok) {
+            throw new Error(
+                responseData.error || 'The name could not be saved.'
+            );
+        }
+
+        return responseData;
+    })
+    .then(responseData => {
+        console.log('Success:', responseData);
+        alert(responseData.message);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert(error.message);
+    });
 }
 
 function GetLast() {
-    fetch('/get_last_name')
-        .then(response => response.json())
-        .then(data => {
-                document.getElementById('last-name').innerText = data.last_name
-            }
-        )
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+    const firstName = document.getElementById('name2').value.trim();
+    const output = document.getElementById('last-name');
 
+    if (!firstName) {
+        output.innerText = 'Enter a first name.';
+        return;
+    }
+
+    fetch(
+        `/get_last_name?firstName=${encodeURIComponent(firstName)}`
+    )
+    .then(async response => {
+        const responseData = await response.json();
+
+        if (!response.ok) {
+            throw new Error(
+                responseData.error ||
+                'The last name could not be found.'
+            );
+        }
+
+        return responseData;
+    })
+    .then(responseData => {
+        output.innerText = responseData.last_name;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        output.innerText = error.message;
+    });
 }
